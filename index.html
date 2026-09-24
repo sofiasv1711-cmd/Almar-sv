@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Almaré Maison — Entre dois mundos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF8F3;--bg2:#F1E9DC;--ink:#1a1310;--brown:#3B2418;--wine:#5E1626;--gold:#B08D57;--mut:#6f6259;--line:rgba(26,19,16,.16);
+--serif:"Cormorant Garamond","Iowan Old Style",Georgia,serif;--sans:"Jost","Helvetica Neue",Arial,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17100d;--bg2:#221812;--ink:#f3ebde;--mut:#b3a596;--line:rgba(243,235,222,.18);--brown:#e6d3bd}}
+:root[data-theme="dark"]{--bg:#17100d;--bg2:#221812;--ink:#f3ebde;--mut:#b3a596;--line:rgba(243,235,222,.18);--brown:#e6d3bd}
+html{scroll-behavior:smooth;scroll-padding-top:calc(84px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:300 16px/1.7 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.05;letter-spacing:-.01em}
+h2{font-size:clamp(2.2rem,5vw,4rem)}
+em{font-style:italic;color:var(--gold)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+section{padding:clamp(72px,11vw,150px) 0}
+.tag{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.btn{display:inline-block;padding:15px 34px;border:1px solid var(--ink);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;transition:.35s}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn.fill{background:var(--wine);border-color:var(--wine);color:#f6efe4}
+.btn.fill:hover{background:var(--gold);border-color:var(--gold);color:#1a1310}
+.lede{font-family:var(--serif);font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.5;color:var(--brown)}
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:.4s;background:transparent}
+header.s{background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo{font-family:var(--serif);font-size:1.7rem;letter-spacing:.32em;font-weight:400}
+.logo small{display:block;font:300 .52rem/1 var(--sans);letter-spacing:.5em;color:var(--gold);margin-top:5px;text-align:center}
+nav{display:flex;gap:clamp(14px,2.2vw,34px);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+nav a{position:relative;padding:6px 0}
+nav a:after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:.35s}
+nav a:hover:after{width:100%}
+.ic{display:flex;gap:6px;align-items:center}
+.ic button{position:relative;width:40px;height:40px;display:grid;place-items:center}
+.ic svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.2}
+.ic b{position:absolute;top:3px;right:2px;min-width:16px;height:16px;border-radius:8px;background:var(--wine);color:#fff;font:400 .62rem/16px var(--sans);text-align:center}
+.bg{display:none}
+#srch{position:fixed;inset:0;z-index:60;background:var(--bg);display:none;place-items:center;padding:24px}
+#srch.o{display:grid}
+#srch input{width:min(760px,100%);background:none;border:0;border-bottom:1px solid var(--ink);font:300 clamp(1.8rem,5vw,3.4rem) var(--serif);color:var(--ink);padding:10px 0;outline:0}
+#srch p{margin-top:16px;color:var(--mut)}
+/* hero */
+.hero{min-height:100svh;padding:120px 0 60px;background:radial-gradient(120% 90% at 78% 40%,var(--bg2),var(--bg) 70%);display:flex;align-items:center}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,80px);align-items:center}
+.hero h1{font-size:clamp(2.9rem,7.4vw,6.6rem);margin:22px 0 28px}
+.hero p{max-width:440px;color:var(--mut);margin-bottom:38px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.stage{position:relative;aspect-ratio:3/4.1;max-height:78vh;justify-self:center;width:100%;max-width:520px}
+.arch{position:absolute;inset:0;border-radius:999px 999px 0 0;background:linear-gradient(170deg,#7a2233 0%,var(--wine) 38%,#2a1710 100%);overflow:hidden}
+.arch:before{content:"";position:absolute;inset:0;background:radial-gradient(60% 40% at 50% 12%,rgba(230,190,120,.55),transparent 70%)}
+.arch svg{position:absolute;left:0;bottom:0;width:100%;height:96%}
+.ring{position:absolute;inset:-16px 16px 16px -16px;border:1px solid var(--gold);border-radius:999px 999px 0 0;z-index:-1}
+.sun{position:absolute;width:26%;aspect-ratio:1;border-radius:50%;left:37%;top:9%;background:radial-gradient(circle at 40% 35%,#f0d7a4,var(--gold));filter:blur(.5px)}
+.cap{position:absolute;right:-6px;bottom:38px;background:var(--bg);padding:14px 20px;font-family:var(--serif);font-style:italic;font-size:1.05rem;box-shadow:0 20px 40px -20px rgba(0,0,0,.35)}
+.hero .r{animation:in 1.6s cubic-bezier(.2,.7,.2,1) both}
+.hero h1{animation:in 1.4s .15s cubic-bezier(.2,.7,.2,1) both}
+.hero .stage{animation:in 1.8s .3s cubic-bezier(.2,.7,.2,1) both}
+@keyframes in{from{opacity:0;transform:translateY(26px)}}
+.mq{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:16px 0;font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--brown)}
+.mq div{display:inline-block;animation:mq 40s linear infinite}
+.mq span{margin:0 28px}.mq i{color:var(--gold);font-style:normal}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* collection */
+.head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:44px}
+.head p{max-width:420px;color:var(--mut)}
+.tabs{display:flex;gap:6px 26px;flex-wrap:wrap;margin-bottom:40px;border-bottom:1px solid var(--line)}
+.tabs button{padding:12px 0;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);border-bottom:1px solid transparent;margin-bottom:-1px}
+.tabs button.on{color:var(--ink);border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:36px 24px}
+.card .im{position:relative;aspect-ratio:3/4;overflow:hidden}
+.card .im:before{content:"";position:absolute;left:12%;right:12%;top:8%;bottom:0;border-radius:999px 999px 0 0;background:rgba(255,255,255,.14);transition:.7s}
+.card:hover .im:before{transform:scale(1.06)}
+.card svg.f{position:absolute;inset:14% 14% 4%;width:72%;height:82%;transition:.7s}
+.card:hover svg.f{transform:translateY(-6px)}
+.fav{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:rgba(251,248,243,.92);display:grid;place-items:center;color:#1a1310}
+.fav svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.3}
+.fav.on svg{fill:var(--wine);stroke:var(--wine)}
+.card h3{font-size:1.5rem;margin-top:16px}
+.card .d{color:var(--mut);font-size:.88rem;line-height:1.55;margin:4px 0 10px;min-height:2.7em}
+.card .pr{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pr span{font-family:var(--serif);font-size:1.25rem}
+.buy{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--gold);padding-bottom:2px}
+.buy:hover{color:var(--gold)}
+/* manifesto */
+.man{background:var(--brown);color:#f3e9da;text-align:center}
+:root[data-theme="dark"] .man,.man{--ink:#f3e9da}
+.man h2{max-width:980px;margin:22px auto 34px;font-size:clamp(2.1rem,5.2vw,4.4rem)}
+.man .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;max-width:1000px;margin:70px auto 0;text-align:left}
+.man h3{font-size:1.5rem;color:var(--gold);font-style:italic;margin-bottom:8px}
+.man .cols p{color:#d8c9b5;font-size:.94rem}
+.man>.wrap>p{max-width:640px;margin:auto;color:#d8c9b5}
+/* two worlds */
+.bx{display:grid;grid-template-columns:1fr 1fr;min-height:640px}
+.bx>div{position:relative;padding:clamp(40px,6vw,90px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.br{background:linear-gradient(200deg,#c9a46a,#8a5a2b 55%,#3e2a14);color:#fff7ea}
+.es{background:linear-gradient(200deg,#8a2338,var(--wine) 50%,#1e0a10);color:#f6e9e6}
+.bx>div:before{content:"";position:absolute;width:70%;aspect-ratio:1;right:-18%;top:-10%;border-radius:50%;border:1px solid rgba(255,255,255,.28)}
+.bx>div:after{content:"";position:absolute;width:44%;aspect-ratio:1;right:2%;top:6%;border-radius:50%;border:1px solid rgba(255,255,255,.2)}
+.bx h3{font-size:clamp(2.4rem,4.6vw,4rem);margin-bottom:12px}
+.bx p{max-width:400px;opacity:.9}
+.bx ul{list-style:none;padding:0;margin-top:22px;display:flex;gap:8px 20px;flex-wrap:wrap;font-family:var(--serif);font-style:italic;font-size:1.15rem;opacity:.85}
+.x{position:absolute;z-index:2;left:50%;top:50%;translate:-50% -50%;width:84px;height:84px;border-radius:50%;background:var(--bg);color:var(--gold);display:grid;place-items:center;font:300 2.4rem var(--serif)}
+.bxw{position:relative}
+/* atelier */
+.at{background:var(--bg2)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:56px;border-top:1px solid var(--line)}
+.steps div{padding:30px 22px 10px 0;border-right:1px solid var(--line);padding-left:22px}
+.steps div:first-child{padding-left:0}.steps div:last-child{border:0}
+.steps b{font:italic 400 1.9rem var(--serif);color:var(--gold);display:block;margin-bottom:6px}
+.steps h3{font-size:1.4rem;margin-bottom:8px}
+.steps p{font-size:.88rem;color:var(--mut)}
+.sw{display:flex;gap:10px;margin-top:44px;flex-wrap:wrap;align-items:center;color:var(--mut);font-size:.84rem}
+.sw i{width:46px;height:46px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+/* history */
+.tl{margin-top:56px;position:relative}
+.tl:before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:var(--line)}
+.tl ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:26px}
+.tl li{position:relative;padding-top:38px}
+.tl li:before{content:"";position:absolute;top:3px;left:0;width:13px;height:13px;border-radius:50%;background:var(--bg);border:1px solid var(--gold)}
+.tl li:last-child:before{background:var(--gold)}
+.tl b{font:300 2.3rem var(--serif);display:block;line-height:1}
+.tl p{font-size:.88rem;color:var(--mut);margin-top:8px}
+.hs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:end}
+.hs p+p{margin-top:16px;color:var(--mut)}
+/* journal */
+.jr{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:26px}
+.jr a .im{aspect-ratio:4/5;margin-bottom:16px;overflow:hidden;position:relative}
+.jr a:first-child .im{aspect-ratio:auto;height:calc(100% - 128px);min-height:340px}
+.jr .im:after{content:"";position:absolute;inset:0;background:radial-gradient(70% 50% at 30% 100%,rgba(255,255,255,.22),transparent);transition:.6s}
+.jr a:hover .im:after{transform:scale(1.4)}
+.jr small{color:var(--gold);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase}
+.jr h3{font-size:1.65rem;margin:6px 0 6px}
+.jr p{font-size:.88rem;color:var(--mut)}
+/* privée */
+.pv{background:var(--ink);color:#f3ebde;--mut:#b8a998}
+.pv .g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:center}
+.pv h2 em{color:var(--gold)}
+.pv ul{list-style:none;padding:0;margin:30px 0 38px}
+.pv li{display:flex;gap:16px;padding:16px 0;border-top:1px solid rgba(243,235,222,.16)}
+.pv li:last-child{border-bottom:1px solid rgba(243,235,222,.16)}
+.pv li b{font:italic 400 1.3rem var(--serif);color:var(--gold);min-width:150px;font-weight:400}
+.pv li span{color:#c9bba9;font-size:.92rem}
+.pv .btn{border-color:var(--gold);color:var(--gold)}.pv .btn:hover{background:var(--gold);color:#1a1310}
+.key{aspect-ratio:4/5;background:linear-gradient(160deg,#2a1710,#0e0806);border:1px solid rgba(176,141,87,.5);border-radius:999px 999px 0 0;display:grid;place-items:center;text-align:center;padding:40px}
+.key div{font-family:var(--serif);font-size:1.7rem;line-height:1.3;font-style:italic;color:#e9d9bd}
+.key small{display:block;font:300 .68rem var(--sans);letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-top:18px;font-style:normal}
+/* newsletter */
+.nl{text-align:center;background:linear-gradient(180deg,var(--bg),var(--bg2))}
+.nl h2{font-size:clamp(2.8rem,8vw,6.5rem)}
+.nl p{color:var(--mut);max-width:480px;margin:18px auto 34px}
+.nl form{display:flex;max-width:520px;margin:auto;border-bottom:1px solid var(--ink)}
+.nl input{flex:1;background:none;border:0;padding:14px 4px;font:300 1rem var(--sans);color:var(--ink);outline:0;min-width:0}
+.nl button{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;padding:0 6px;color:var(--wine)}
+:root[data-theme="dark"] .nl button{color:var(--gold)}
+#ok{margin-top:16px;color:var(--gold);min-height:1.5em;font-family:var(--serif);font-style:italic;font-size:1.15rem}
+/* footer */
+footer{background:#120c09;color:#cbbda9;padding:80px 0 30px;font-size:.88rem}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+footer .logo{color:#f3ebde;display:inline-block;margin-bottom:16px}
+footer h4{font:400 .7rem var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+footer li{list-style:none;margin-bottom:9px}footer ul{padding:0}
+footer a:hover{color:#fff}
+.fb{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-top:60px;padding-top:24px;border-top:1px solid rgba(243,235,222,.14);font-size:.78rem;color:#8d7f70}
+#toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));translate:-50% 30px;opacity:0;pointer-events:none;background:var(--ink);color:var(--bg);padding:14px 26px;font-size:.84rem;z-index:70;transition:.4s}
+#toast.o{opacity:1;translate:-50% 0}
+@media(max-width:1020px){nav{display:none}.bg{display:grid}
+ nav.o{display:flex;flex-direction:column;position:fixed;inset:78px 0 0;background:var(--bg);padding:40px 28px;gap:26px;font-size:.9rem;z-index:40}
+ .steps{grid-template-columns:1fr 1fr}.steps div{border:0;border-top:1px solid var(--line);padding:24px 16px 10px 0}
+ .tl ol{grid-template-columns:1fr 1fr}.tl:before{display:none}
+ .jr{grid-template-columns:1fr 1fr}.jr a:first-child{grid-column:1/-1}.jr a:first-child .im{height:auto;aspect-ratio:16/10;min-height:0}
+ .fg{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.hero .wrap,.bx,.hs,.pv .g,.man .cols{grid-template-columns:1fr}
+ .hero{padding-top:100px}.stage{max-width:380px}.cap{right:0}
+ .bx>div{min-height:460px}.x{width:64px;height:64px;font-size:1.8rem}
+ .jr,.steps,.tl ol,.fg{grid-template-columns:1fr}.pv li{flex-direction:column;gap:2px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header id="hd"><div class="wrap bar">
+<button class="bg ic" id="mb" aria-label="Menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 8h18M3 16h18"/></svg></button>
+<a href="#top" class="logo">ALMARÉ<small>MAISON · SÃO PAULO · MADRID</small></a>
+<nav id="nv"><a href="#colecoes">Coleções</a><a href="#colecoes">Nova Temporada</a><a href="#sobre">Sobre</a><a href="#atelier">Atelier</a><a href="#journal">Journal</a><a href="#contato">Contato</a></nav>
+<div class="ic">
+<button id="sb" aria-label="Busca"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+<button aria-label="Favoritos" onclick="toast('Você tem '+fv.size+' peça(s) nos favoritos')"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.400-7 10-7 10z"/></svg><b id="fc">0</b></button>
+<button aria-label="Sacola" onclick="toast('Sacola: '+bag+' peça(s)')"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 016 0v2"/></svg><b id="bc">0</b></button>
+</div></div></header>
+
+<div id="srch" role="dialog" aria-label="Busca"><div style="width:min(760px,100%)"><input id="q" placeholder="O que você procura?" aria-label="Buscar"><p>Tente “seda”, “alfaiataria” ou “Toledo”. Esc para fechar.</p></div></div>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+<div class="r"><span class="tag">Nova Temporada · Primavera–Verão 26/27</span>
+<h1>Entre dois mundos, nasce uma nova forma de <em>elegância.</em></h1>
+<p>Coleção Jacarandá de Toledo: seda que respira como o trópico, corte que se ergue como um arco andaluz.</p>
+<div class="cta"><a class="btn fill" href="#colecoes">Descobrir a coleção</a><a class="btn" href="#manifesto">Ler o manifesto</a></div></div>
+<div class="stage"><div class="ring"></div>
+<div class="arch"><div class="sun"></div>
+<svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMax meet"><g fill="#f4e8d6" opacity=".95"><circle cx="150" cy="118" r="20"/><path d="M143 136h14l-2 26h-10z"/><path d="M118 168c16-10 48-10 64 0l-6 46 40 186H84l40-186z" opacity=".96"/></g><path d="M118 168c16-10 48-10 64 0" stroke="#B08D57" fill="none" stroke-width="1.5"/><path d="M150 214v186" stroke="rgba(94,22,38,.35)" stroke-width="1"/></svg></div>
+<div class="cap">Jacarandá Nº 7, seda vinho</div></div>
+</div></section>
+
+<div class="mq" aria-hidden="true"><div><span>Feito à mão em São Paulo e Madrid</span><i>✦</i><span>Doze anos de ofício</span><i>✦</i><span>Seda, linho e lã fria</span><i>✦</i><span>Edições limitadas</span><i>✦</i><span>Feito à mão em São Paulo e Madrid</span><i>✦</i><span>Doze anos de ofício</span><i>✦</i><span>Seda, linho e lã fria</span><i>✦</i><span>Edições limitadas</span><i>✦</i></div></div>
+
+<section id="colecoes"><div class="wrap">
+<div class="head"><div><span class="tag">Coleção Jacarandá de Toledo</span><h2 style="margin-top:14px">A nova temporada</h2></div><p>Dez peças pensadas para atravessar o dia e a noite. Cada uma nasce em tiragem curta e leva o número do seu lote.</p></div>
+<div class="tabs" id="tabs"></div>
+<div class="grid" id="gd"></div>
+</div></section>
+
+<section class="man" id="manifesto"><div class="wrap">
+<span class="tag">Manifesto</span>
+<h2>Acreditamos que a elegância é uma forma de <em>presença</em>, não de aparência.</h2>
+<p>Vestimos mulheres que carregam mais de uma língua, mais de uma casa, mais de uma versão de si. Nossas roupas não pedem licença: ocupam o espaço com calma e deixam rastro de luz.</p>
+<div class="cols"><div><h3>Sensualidade serena</h3><p>O corpo é lido pelo caimento, nunca pelo excesso. Um decote nas costas diz mais que mil brilhos.</p></div><div><h3>Ofício antes de tendência</h3><p>Cada modelo passa por 14 provas. Se não envelhece bem, não sai do atelier.</p></div><div><h3>Raízes em movimento</h3><p>Do jacarandá paulistano ao pátio de Córdoba, carregamos lugares que a gente reinventa a cada estação.</p></div></div>
+</div></section>
+
+<section style="padding:0" id="sobre"><div class="bxw"><div class="bx">
+<div class="br"><span class="tag" style="color:#f6dfb0">Brasil</span><h3>Luz, rio e <em style="color:#ffe6b0">pele.</em></h3><p>A leveza do algodão cru, o balanço da cintura, o verde que invade a janela. O Brasil nos ensinou a vestir o calor sem perder a linha.</p><ul><li>Renda renascença</li><li>Seda lavada</li><li>Palha e madeira</li><li>Tons de terra</li></ul></div>
+<div class="es"><span class="tag" style="color:#f0cf9a">Espanha</span><h3>Arco, rigor e <em style="color:#f0cf9a">paixão.</em></h3><p>A arquitetura de Gaudí ao Alhambra, a geometria dos azulejos, a intensidade de uma capa negra sob o sol. A Espanha nos deu estrutura e drama.</p><ul><li>Alfaiataria de Madrid</li><li>Filigrana andaluza</li><li>Vinho e ouro velho</li><li>Mantilha em tule</li></ul></div>
+</div><div class="x">×</div></div></section>
+
+<section class="at" id="atelier"><div class="wrap">
+<div class="head"><div><span class="tag">Atelier</span><h2 style="margin-top:14px">Feito com as mãos, <em>pensado</em> com a cabeça</h2></div><p>No atelier da Vila Madalena e no ateliê da Calle de Serrano, quarenta artesãs e artesãos dão corpo a cada desenho.</p></div>
+<div class="steps">
+<div><b>I</b><h3>Tecidos</h3><p>Sedas do Lago Como, linhos lavados do Minho e algodões finos de Minas, escolhidos pelo toque antes da cor.</p></div>
+<div><b>II</b><h3>Modelagem</h3><p>Moldes desenhados em papel kraft, testados em corpos reais, ajustados até a peça se mover sozinha.</p></div>
+<div><b>III</b><h3>Corte</h3><p>Um único corte por peça, feito à tesoura, respeitando o fio do tecido e a direção do caimento.</p></div>
+<div><b>IV</b><h3>Costura</h3><p>Pontos invisíveis, bainhas à mão e forros em seda. Nenhum avesso é menos bonito que o direito.</p></div>
+<div><b>V</b><h3>Acabamento</h3><p>Botões de madrepérola, bordados em fio dourado e uma etiqueta assinada por quem terminou a peça.</p></div>
+</div>
+<div class="sw"><span>Paleta de tecidos da temporada</span><i style="background:#f4ecdd"></i><i style="background:#d8c5a6"></i><i style="background:#3B2418"></i><i style="background:#5E1626"></i><i style="background:#14100E"></i><i style="background:#B08D57"></i></div>
+</div></section>
+
+<section id="historia"><div class="wrap">
+<div class="hs"><div><span class="tag">Nossa História</span><h2 style="margin-top:14px">Doze anos entre <em>duas margens</em></h2></div>
+<div><p class="lede">Almaré nasceu em 2014, num sobrado da Vila Madalena, quando Helena Duarte, paulistana, e Inés Montalvo, madrilenha, decidiram costurar a mesma ideia em duas línguas.</p><p>Começou com doze vestidos e uma máquina de segunda mão. Hoje, a maison veste mulheres em quatorze países, sem nunca ter aberto mão da tiragem curta e do gesto artesanal.</p></div></div>
+<div class="tl"><ol>
+<li><b>2014</b><p>Primeiro atelier na Vila Madalena. Doze vestidos, uma máquina, muita teimosia.</p></li>
+<li><b>2016</b><p>Desfile-íntimo no Jardim da Luz e primeira coleção de alfaiataria.</p></li>
+<li><b>2018</b><p>Abertura do ateliê em Madrid, no Barrio de Salamanca.</p></li>
+<li><b>2022</b><p>Nasce a Maison Privée, com atendimento sob agendamento.</p></li>
+<li><b>2026</b><p>Coleção Jacarandá de Toledo e a primeira loja-galeria em São Paulo.</p></li>
+</ol></div>
+</div></section>
+
+<section id="journal" style="background:var(--bg2)"><div class="wrap">
+<div class="head"><div><span class="tag">Journal</span><h2 style="margin-top:14px">Histórias de <em>dentro</em></h2></div><a class="btn" href="#journal">Ver todas as edições</a></div>
+<div class="jr">
+<a href="#journal"><div class="im" style="background:linear-gradient(150deg,#8a5a2b,#3B2418 60%,#1a0e08)"></div><small>Bastidores</small><h3>Quatorze provas para um único vestido</h3><p>Acompanhamos a construção do Alba, do primeiro croqui ao último ponto de bainha.</p></a>
+<a href="#journal"><div class="im" style="background:linear-gradient(150deg,#a3475a,#5E1626 70%)"></div><small>Cultura</small><h3>O vinho de Toledo, o verde de Paraty</h3><p>Dois roteiros afetivos que inspiraram a paleta da temporada.</p></a>
+<a href="#journal"><div class="im" style="background:linear-gradient(150deg,#e6d3ad,#b08d57 60%,#6d5230)"></div><small>Estilo</small><h3>Como vestir o dourado de dia</h3><p>Três regras simples, de Inés, para usar brilho com naturalidade.</p></a>
+</div></div></section>
+
+<section class="pv" id="privee"><div class="wrap g">
+<div><span class="tag">Maison Privée</span><h2 style="margin-top:14px">Um endereço só <em>seu</em></h2>
+<ul><li><b>Atendimento pessoal</b><span>Uma consultora dedicada, por WhatsApp, ligação ou visita ao atelier.</span></li><li><b>Prévias fechadas</b><span>Acesso às coleções semanas antes do lançamento.</span></li><li><b>Peças exclusivas</b><span>Edições numeradas, ajustes sob medida e monogramas bordados.</span></li></ul>
+<a class="btn" href="#contato">Solicitar convite</a></div>
+<div class="key"><div>“Uma peça que ninguém mais tem, feita para quem ela é.”<small>Maison Privée · desde 2022</small></div></div>
+</div></section>
+
+<section class="nl"><div class="wrap">
+<h2>Entre para o <em>círculo.</em></h2>
+<p>Receba primeiro os lançamentos, convites para prévias e cartas do atelier. Uma mensagem por quinzena, nunca mais.</p>
+<form id="nf"><input type="email" id="em" placeholder="Seu melhor e-mail" required aria-label="E-mail"><button>Entrar</button></form>
+<div id="ok" role="status"></div>
+</div></section>
+</main>
+
+<footer id="contato"><div class="wrap">
+<div class="fg">
+<div><a href="#top" class="logo">ALMARÉ</a><p style="max-width:300px">Maison de moda feminina fundada em 2014, entre São Paulo e Madrid.</p><p style="margin-top:16px"><a href="#">Instagram</a> · <a href="#">Pinterest</a> · <a href="#">YouTube</a> · <a href="#">WhatsApp</a></p></div>
+<div><h4>Endereços</h4><ul><li>Rua Oscar Freire, 1120<br>Jardins, São Paulo</li><li>Calle de Serrano, 48<br>28001 Madrid</li></ul></div>
+<div><h4>Atendimento</h4><ul><li>concierge@almare.maison</li><li>+55 11 3000 0142</li><li>Seg a sáb, 10h às 19h</li><li>Trocas em até 30 dias</li></ul></div>
+<div><h4>Políticas</h4><ul><li><a href="#">Envios e devoluções</a></li><li><a href="#">Privacidade</a></li><li><a href="#">Termos de uso</a></li><li><a href="#">Guia de tamanhos</a></li></ul></div>
+</div>
+<div class="fb"><span>© 2026 Almaré Maison. Todos os direitos reservados.</span><span>Feito à mão, entre dois mundos.</span></div>
+</div></footer>
+<div id="toast" role="status"></div>
+
+<script>
+const P=[
+["Alba Rendada","Vestidos","Vestido midi em renda renascença sobre seda marfim, com decote nas costas.",4890,"#e9dcc4","#b8956a","d"],
+["Marés de Sevilha","Vestidos","Vestido fluido em seda vinho, mangas amplas e fenda lateral discreta.",5290,"#8a2338","#3d0d18","d"],
+["Córdoba","Alfaiataria","Blazer estruturado em lã fria preta, ombros marcados e botões em madrepérola.",4190,"#3a2a22","#12090a","b"],
+["Serrano Pantalona","Alfaiataria","Calça de cintura alta em linho pesado, corte reto e vinco permanente.",2890,"#d5c3a3","#8d7350","b"],
+["Candeia","Conjuntos","Conjunto top e saia em crepe de seda, bordado à mão com fio dourado.",6450,"#6b1f2e","#280a12","c"],
+["Ipanema Noir","Conjuntos","Conjunto de blusa e calça em cetim, leve como a brisa de fim de tarde.",5390,"#2a1c17","#0f0806","c"],
+["Flamenca Midi","Saias","Saia godê em seda ivory com babados sobrepostos e forro em algodão.",2390,"#f0e6d2","#c9ae82","s"],
+["Jacarandá","Saias","Saia lápis em jacquard violeta-vinho com abertura frontal.",2190,"#5e3a52","#28101f","s"],
+["Sol de Toledo","Acessórios","Bolsa de mão em couro caramelo com fecho dourado escovado.",3980,"#b6793d","#5a3316","a"],
+["Filigrana Dourada","Acessórios","Brincos em prata banhada a ouro 18k, filigrana feita à mão.",1290,"#d8b76f","#7a5a26","a"]];
+const S={d:'<path d="M40 8h20l-2 32 16 92H26l16-92z"/>',b:'<path d="M28 18l22-10 22 10 6 56-14 2v50H36V76l-14-2z"/>',c:'<path d="M38 10h24l-2 42H40zM34 58h32l14 72H20z"/>',s:'<path d="M34 22h32l16 108H18z"/>',a:'<path d="M26 62h48v62H26z"/><path d="M36 62c0-30 28-30 28 0" fill="none" stroke="currentColor" stroke-width="3"/>'};
+const cats=["Todas","Vestidos","Alfaiataria","Conjuntos","Saias","Acessórios"];
+let fv=new Set(),bag=0,cur="Todas",qs="";
+const $=s=>document.querySelector(s),brl=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("o");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("o"),2200)}
+function draw(){
+ $("#tabs").innerHTML=cats.map(c=>`<button class="${c==cur?"on":""}" data-c="${c}">${c}</button>`).join("");
+ const l=P.map((p,i)=>[p,i]).filter(([p])=>(cur=="Todas"||p[1]==cur)&&(p[0]+p[1]+p[2]).toLowerCase().includes(qs));
+ $("#gd").innerHTML=l.length?l.map(([p,i])=>`<article class="card"><div class="im" style="background:linear-gradient(165deg,${p[4]},${p[5]})"><svg class="f" viewBox="0 0 100 140" style="color:${p[6]=="a"?"#1a1310":"#1a1310"}" fill="rgba(251,248,243,.86)">${S[p[6]]}</svg><button class="fav ${fv.has(i)?"on":""}" data-f="${i}" aria-label="Favoritar ${p[0]}"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.4-7 10-7 10z"/></svg></button></div><h3>${p[0]}</h3><p class="d">${p[2]}</p><div class="pr"><span>${brl(p[3])}</span><button class="buy" data-b="${i}">Comprar</button></div></article>`).join(""):'<p style="color:var(--mut)">Nenhuma peça encontrada. Limpe a busca para ver a coleção completa.</p>';
+ $("#fc").textContent=fv.size;$("#bc").textContent=bag}
+document.addEventListener("click",e=>{
+ const t=e.target.closest("[data-c],[data-f],[data-b]");if(!t)return;
+ if(t.dataset.c){cur=t.dataset.c;draw()}
+ else if(t.dataset.f){const i=+t.dataset.f;fv.has(i)?fv.delete(i):fv.add(i);draw()}
+ else{bag++;draw();toast(P[t.dataset.b][0]+" foi para a sacola")}});
+const q=$("#q"),sr=$("#srch");
+$("#sb").onclick=()=>{sr.classList.add("o");q.focus()};
+q.oninput=()=>{qs=q.value.toLowerCase().trim();draw();if(qs)location.hash="colecoes"};
+sr.onclick=e=>{if(e.target==sr)sr.classList.remove("o")};
+document.onkeydown=e=>{if(e.key=="Escape"){sr.classList.remove("o");$("#nv").classList.remove("o")}};
+$("#mb").onclick=()=>$("#nv").classList.toggle("o");
+$("#nv").onclick=()=>$("#nv").classList.remove("o");
+addEventListener("scroll",()=>$("#hd").classList.toggle("s",scrollY>40),{passive:true});
+$("#nf").onsubmit=e=>{e.preventDefault();$("#ok").textContent="Bem-vinda ao círculo. Sua primeira carta chega em breve.";e.target.reset()};
+draw();
+</script>
+</body>
+</html>
